@@ -3,3 +3,101 @@
 
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.task-list {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.task-card {
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+    text-align: left;
+    transition: transform 0.2s;
+}
+
+.task-card:hover {
+    transform: translateY(-2px);
+}
+
+.task-meta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.status-badge {
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status-badge.todo {
+    background-color: #ff9800;
+    color: #000;
+}
+
+.status-badge.in-progress {
+    background-color: #2196f3;
+    color: #000;
+}
+
+.status-badge.done {
+    background-color: #4caf50;
+    color: #000;
+}
+
+.loading-more {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: #333;
+    border-radius: 8px;
+}
+
+.task-stats {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.error {
+    color: #f44336;
+    padding: 1rem;
+    background: rgba(244, 67, 54, 0.1);
+    border-radius: 8px;
+}
+
+.loading {
+    padding: 1rem;
+}

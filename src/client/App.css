@@ -1,0 +1,39 @@
+nav {
+    margin-bottom: 2rem;
+}
+
+nav ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+}
+
+nav a {
+    color: #646cff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+nav a:hover {
+    background-color: #333;
+}
+
+.task-detail {
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 600px;
+    text-align: left;
+}
+
+.task-info {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
