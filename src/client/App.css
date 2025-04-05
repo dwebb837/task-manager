@@ -67,6 +67,13 @@ body {
     box-shadow: 0 0 0 2px rgba(100, 108, 255, 0.2);
 }
 
+.form-actions {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
 /* Modals - Brighter Version */
 .modal-content,
 .delete-confirm {
@@ -74,6 +81,17 @@ body {
     color: var(--lighter-text);
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.confirm-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
 
 .delete-confirm p {
@@ -85,16 +103,19 @@ body {
 .submit-btn {
     background: var(--success-light);
     font-weight: 500;
+    padding: 5px;
 }
 
 .cancel-btn {
     background: #777;
     color: white;
+    padding: 5px;
 }
 
 .confirm-btn {
     background: var(--danger-light);
     font-weight: 500;
+    padding: 5px;
 }
 
 /* Status Badges - Brighter */
@@ -120,10 +141,22 @@ body {
 .task-card h3 {
     color: var(--light-text);
     font-size: 1.1rem;
+    color: white;
 }
 
 .task-meta {
     color: var(--muted-text);
+}
+
+.task-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.task-actions button {
+    padding: 5px;
 }
 
 /* Navigation - More Visible */

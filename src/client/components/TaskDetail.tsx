@@ -6,7 +6,7 @@ export const TaskDetail = () => {
     const { taskId } = useParams();
     const { data: task, isLoading, error } = useQuery({
         queryKey: ['task', taskId],
-        queryFn: () => fetchTaskById(taskId),
+        queryFn: () => fetchTaskById(taskId ?? ''),
     });
 
     if (isLoading) return <div className="loading">Loading task details...</div>;

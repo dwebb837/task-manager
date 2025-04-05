@@ -56,8 +56,8 @@ export const InfiniteTaskList = () => {
             </div>
             <ul>
                 {allTasks.map((task, index) => (
-                    <TaskItem 
-                        key={task.id} 
+                    <TaskItem
+                        key={task.id}
                         task={task}
                         ref={index === allTasks.length - 1 ? lastTaskRef : null}
                     />

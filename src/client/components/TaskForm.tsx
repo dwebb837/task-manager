@@ -25,8 +25,8 @@ export const TaskForm = ({ existingTask, onSuccess, onCancel }: TaskFormProps) =
         onMutate: async (newTask) => {
             await queryClient.cancelQueries({ queryKey: ['tasks'] });
             const previousTasks = queryClient.getQueryData<Task[]>(['tasks']);
-            queryClient.setQueryData(['tasks'], (old: Task[] = []) => 
-                existingTask 
+            queryClient.setQueryData(['tasks'], (old: Task[] = []) =>
+                existingTask
                     ? old?.map(t => t.id === newTask.id ? newTask : t)
                     : [newTask, ...old]
             );
@@ -44,10 +44,10 @@ export const TaskForm = ({ existingTask, onSuccess, onCancel }: TaskFormProps) =
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        const taskData = { 
-            title, 
-            status, 
-            assignee, 
+        const taskData = {
+            title,
+            status,
+            assignee,
             dueDate,
             id: existingTask ? existingTask.id : uuidv4()
         };
