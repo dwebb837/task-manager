@@ -25,3 +25,17 @@ export const fetchTaskById = async (taskId?: string): Promise<Task | null> => {
     const response = await axios.get<Task>(`/api/tasks/${taskId}`);
     return response.data;
 };
+
+export const createTask = async (newTask: Omit<Task, 'id'>): Promise<Task> => {
+    const response = await axios.post<Task>('/api/tasks', newTask);
+    return response.data;
+};
+
+export const updateTask = async (updatedTask: Task): Promise<Task> => {
+    const response = await axios.put<Task>(`/api/tasks/${updatedTask.id}`, updatedTask);
+    return response.data;
+};
+
+export const deleteTask = async (taskId: number): Promise<void> => {
+    await axios.delete(`/api/tasks/${taskId}`);
+};

@@ -2,6 +2,7 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import { fetchPaginatedTasks } from '../api/tasks';
 import { useCallback, useRef, useEffect } from 'react';
 import { PaginatedTasksResult } from '../../types/task';
+import { TaskItem } from './TaskItem';
 
 export const InfiniteTaskList = () => {
     const {
@@ -55,20 +56,11 @@ export const InfiniteTaskList = () => {
             </div>
             <ul>
                 {allTasks.map((task, index) => (
-                    <li
-                        key={`${task.id}-${index}`}
+                    <TaskItem 
+                        key={task.id} 
+                        task={task}
                         ref={index === allTasks.length - 1 ? lastTaskRef : null}
-                        className={`task-card ${task.status}`}
-                    >
-                        <h3>{task.title}</h3>
-                        <div className="task-meta">
-                            <span className={`status-badge ${task.status}`}>
-                                {task.status}
-                            </span>
-                            <span>Due: {task.dueDate}</span>
-                            <span>Assigned to: {task.assignee}</span>
-                        </div>
-                    </li>
+                    />
                 ))}
             </ul>
             {isFetchingNextPage && (

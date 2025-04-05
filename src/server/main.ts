@@ -52,6 +52,40 @@ app.get('/api/tasks/:taskId', async (req: express.Request, res: express.Response
   res.status(200).json(task || null);
 });
 
+app.post('/api/tasks', async (req, res) => {
+  const newTask = {
+    id: allTasks.length + 1,
+    ...req.body,
+  };
+  allTasks.unshift(newTask);
+  res.status(201).json(newTask);
+});
+
+app.put('/api/tasks/:taskId', async (req, res) => {
+  const taskId = parseInt(req.params.taskId);
+  const taskIndex = allTasks.findIndex(t => t.id === taskId);
+
+  if (taskIndex === -1) {
+    return res.status(404).json({ error: 'Task not found' });
+  }
+
+  const updatedTask = { ...allTasks[taskIndex], ...req.body };
+  allTasks[taskIndex] = updatedTask;
+  res.status(200).json(updatedTask);
+});
+
+app.delete('/api/tasks/:taskId', async (req, res) => {
+  const taskId = parseInt(req.params.taskId);
+  const taskIndex = allTasks.findIndex(t => t.id === taskId);
+
+  if (taskIndex === -1) {
+    return res.status(404).json({ error: 'Task not found' });
+  }
+
+  allTasks.splice(taskIndex, 1);
+  res.status(204).send();
+});
+
 ViteExpress.listen(app, 3002, () =>
   console.log("Server is listening on port 3002...")
 );
