@@ -1,83 +1,137 @@
-nav {
-    margin-bottom: 2rem;
-}
-
-nav ul {
-    display: flex;
-    gap: 1rem;
-    list-style: none;
-    padding: 0;
-    justify-content: center;
-}
-
-nav a {
-    color: #646cff;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: background-color 0.2s;
-}
-
-nav a:hover {
-    background-color: #333;
-}
-
-.task-detail {
-    background: #1a1a1a;
-    border-radius: 8px;
+#root {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
     padding: 2rem;
-    margin: 2rem auto;
-    max-width: 600px;
-    text-align: left;
-}
-
-.task-info {
-    margin-top: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
 }
 
+/* Main content container */
+.app-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    flex: 1;
+}
+
+:root {
+    --primary: #646cff;
+    --primary-light: #858aff;
+    --success: #4CAF50;
+    --success-light: #6bc06f;
+    --warning: #ff9800;
+    --warning-light: #ffb340;
+    --info: #2196f3;
+    --info-light: #4dabf5;
+    --danger: #f44336;
+    --danger-light: #f6685e;
+    --dark-bg: #2a2a2a;
+    --darker-bg: #1e1e1e;
+    --light-text: #ffffff;
+    --lighter-text: #f5f5f5;
+    --muted-text: #cccccc;
+    --border-color: #555;
+}
+
+body {
+    color: var(--light-text);
+    background-color: #1a1a1a;
+}
+
+/* Forms - Brighter Version */
 .task-form {
-    background: #2a2a2a;
-    padding: 1rem;
+    background: var(--dark-bg);
+    padding: 1.5rem;
     border-radius: 8px;
     margin: 1rem 0;
-}
-
-.form-group {
-    margin-bottom: 1rem;
+    color: var(--lighter-text);
+    border: 1px solid var(--border-color);
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
+    color: var(--lighter-text);
+    font-weight: 500;
 }
 
 .form-group input,
 .form-group select {
-    width: 100%;
-    padding: 0.5rem;
-    border-radius: 4px;
-    border: 1px solid #444;
-    background: #1a1a1a;
+    background: var(--darker-bg);
+    color: var(--light-text);
+    border: 1px solid var(--border-color);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 2px rgba(100, 108, 255, 0.2);
+}
+
+/* Modals - Brighter Version */
+.modal-content,
+.delete-confirm {
+    background: var(--dark-bg);
+    color: var(--lighter-text);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.delete-confirm p {
+    color: var(--lighter-text);
+    font-size: 1.05rem;
+}
+
+/* Buttons - More Vibrant */
+.submit-btn {
+    background: var(--success-light);
+    font-weight: 500;
+}
+
+.cancel-btn {
+    background: #777;
     color: white;
 }
 
-.task-actions {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
+.confirm-btn {
+    background: var(--danger-light);
+    font-weight: 500;
 }
 
-.task-actions button {
-    padding: 0.3rem 0.6rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+/* Status Badges - Brighter */
+.status-badge.todo {
+    background-color: var(--warning-light);
 }
 
-.status-badge {
-    cursor: pointer;
-    user-select: none;
+.status-badge.in-progress {
+    background-color: var(--info-light);
+}
+
+.status-badge.done {
+    background-color: var(--success-light);
+}
+
+/* Task Cards - Improved Contrast */
+.task-card {
+    background: var(--dark-bg);
+    color: var(--lighter-text);
+    border: 1px solid var(--border-color);
+}
+
+.task-card h3 {
+    color: var(--light-text);
+    font-size: 1.1rem;
+}
+
+.task-meta {
+    color: var(--muted-text);
+}
+
+/* Navigation - More Visible */
+nav a {
+    color: var(--primary-light);
+    font-weight: 500;
+}
+
+nav a:hover {
+    background: rgba(100, 108, 255, 0.1);
 }

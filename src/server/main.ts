@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import ViteExpress from "vite-express";
 import { Task, PaginatedTasksResult } from 'src/types/task';
+import { v4 as uuidv4 } from 'uuid';
 
 const app = express();
 app.use(bodyParser.json());
@@ -12,7 +13,7 @@ const generateMockTasks = (): Task[] => {
   const tasks: Task[] = [];
   for (let i = 1; i <= TASK_COUNT; i++) {
     tasks.push({
-      id: i,
+      id: uuidv4(),
       title: `Task ${i}`,
       status: ['todo', 'in-progress', 'done'][Math.floor(Math.random() * 3)] as Task['status'],
       dueDate: new Date(Date.now() + Math.random() * 10 * 24 * 60 * 60 * 1000)
@@ -47,7 +48,7 @@ app.get('/api/tasks', async (req: express.Request, res: express.Response) => {
 });
 
 app.get('/api/tasks/:taskId', async (req: express.Request, res: express.Response) => {
-  const taskId = parseInt(req.params.taskId);
+  const taskId = req.params.taskId;
   const task = allTasks.find(t => t.id === taskId);
   res.status(200).json(task || null);
 });
@@ -62,7 +63,7 @@ app.post('/api/tasks', async (req, res) => {
 });
 
 app.put('/api/tasks/:taskId', async (req, res) => {
-  const taskId = parseInt(req.params.taskId);
+  const taskId = req.params.taskId;
   const taskIndex = allTasks.findIndex(t => t.id === taskId);
 
   if (taskIndex === -1) {
@@ -75,7 +76,7 @@ app.put('/api/tasks/:taskId', async (req, res) => {
 });
 
 app.delete('/api/tasks/:taskId', async (req, res) => {
-  const taskId = parseInt(req.params.taskId);
+  const taskId = req.params.taskId;
   const taskIndex = allTasks.findIndex(t => t.id === taskId);
 
   if (taskIndex === -1) {

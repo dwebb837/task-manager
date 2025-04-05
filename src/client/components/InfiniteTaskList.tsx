@@ -38,7 +38,7 @@ export const InfiniteTaskList = () => {
         [isLoading, hasNextPage, fetchNextPage, isFetchingNextPage]
     );
 
-    // Debugging effect
+    // DEBUG
     useEffect(() => {
         console.log('Current data:', data);
     }, [data]);
